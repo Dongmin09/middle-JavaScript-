@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <!-- 7월 27일 13:56분-->
+    <meta charset="UTF-8">
+ <script>
+    // 함수 매개변수(parameter)
+
+   
+    
+    
+    function f_dm(p_args){
+        alert("타입은->" + typeof(p_args) + "값은" + p_args);
+        p_args(); // 함수실행 callback함수라고 함. 단순히 뒤에 불리는 함수
+    }
+    p_args = function(){
+        alert("이것은 함수입니다.");
+    }
+
+    alert(f_dm(30));
+//     function f_fn(){
+//         alert("함수입니까?");
+//         return "이건 이미 함수입니다.";  // 원래 생략되어 있음
+//     }
+//    // 함수이름을 쓰는 것과 함수를 실행후에 return값을 받는 것을 확실히 구분해야한다.!! 
+//    //  alert(f_fn());
+//     f_dm(f_fn());  //FP가 뭡니까? Function Pointer
+
+
+   
+//      f_dm(function(){                // 함수 넘기기
+//          alert("이것은 함수입니까?");
+//      })
+
+ 
+
+ 
+//      f_dm("메롱");
+//     f_dm(272);
+//     f_dm(!0);
+//     f_dm(["홍","길","동","등","장"]);  // 배열 넘기기 tostring이 자동으로 실행되어 안의 값이 나옴
+ 
+
+ </script>

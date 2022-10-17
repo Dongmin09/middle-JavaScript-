@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    // 홈페이지 개인과제, 월요일에 시험일수도?
+    // 잘가는 사이트 만들어도되고, 뭘 만들어도 되는데
+    // curd 기능과 모달기능은 꼭 있어야함
+    // 핵심은 배운거 한번씩 써보고, 이상한 거 꼭 질문합니다.
+
+
+
+    // 페이지 나누기용 더미데이터 만들기
+    var v_dummyDatas = [];
+    var v_level =["chunjae", "sujae", "youngjae","roze"];
+    var v_cats = ["js","html", "css", "jsp"];
+    
+    function f_ranCat(){
+        var v_cnt = Math.ceil(Math.random()*v_cats.length);
+        var v_rslt = [];
+        for(var i=1;i<v_cnt;i++){ // 중복체크가 필요하지만 1단 무시
+            var v_ransu = Math.floor(Math.random()*v_cats.length);
+            v_rslt.push(v_cats[v_ransu]);
+        }
+        return v_rslt;
+    }
+    
+    
+    
+    
+    for(var i=1; i<=108; i++){
+        var v_gul = {}; // 빈(empty) 객체 생성
+        v_gul.pid = i ;
+        v_gul.title ="제목" +i;
+        v_gul.writer = "작성자" + i;
+        v_gul.content = "내용" + i + "이디옹";
+        v_gul.level = v_level[Math.floor(Math.random()*v_level.length)];
+        v_gul.cats = f_ranCat();
+        v_dummyDatas.push(v_gul); // 배열에 담기
+    }
+
+    // 배열을 localStorage에 저장
+    localStorage.setItem("gesiTB", JSON.stringify(v_dummyDatas));
+</script>

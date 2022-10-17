@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>두 개는 항상 기억해야한다.</h1>
+    <a href="../images/mylee.jpg" onclick="f_aa()">클릭만 실행</a>
+    <a href="../images/mylee2.jpg" download="부리부리.jpg">보노보노</a>
+<script>
+    function f_aa() {
+        event.preventDefault(); // 기본장착 이벤트 기능 막기
+     // event.stopPropagation(); 윗줄과 함께 머리에 속에 기억해야되는 것 꼭..
+        alert("클릭을하거라");
+    }
+
+</script>
+</body>
+</html>

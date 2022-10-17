@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selector</title>
+<style>
+/*  CSS  선택자 */
+/* 태그 선택자 */
+    div{ /* div 태그 전부 선택*/
+        color: darkslategrey;
+        background-color: gray;
+    }
+    /* id 접근자 */
+    #lm {
+        font-size: 50px;
+        color: violet;
+
+    }
+    div.de{ /* div 태그이면서 class가 de 인 것만, 빈 공백없으면 and로 연산 */
+        color: teal;
+        background-color: gold;
+    }
+    #merrong.aaa{/* id가 merrong이면서 class가 aaa인 것 */
+        font-size: 100px;
+    }
+</style>
+
+</head>
+<body>
+    <div>몰루</div>
+    <div id="lm">파워레인저</div>
+    <div class = "de"> 포켓몬</div>
+    <p class="de">난 p 태그</p>
+    <div id="merrong" class="aaa">디지몬</div>
+    <div>가면라이더</div>
+</body>
+</html>

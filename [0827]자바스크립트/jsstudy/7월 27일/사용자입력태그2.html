@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>  <!--2022-07-27.15:32-->
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    input{
+        font-size: 30px;
+    }
+
+</style>
+<body>
+
+    <!--라디오 버튼과 다른점은 체크박스는 중복으로 체크가 가능하다.
+    checked disabled 체크를 못하게 품 
+    -->
+    
+    당신의 취미는 <br>
+    자바<input type="checkbox" name="hobby" value="java" >
+    자바스크립트<input type="checkbox" name="hobby" value="js" checked disabled>
+    HTML<input type="checkbox" name="hobby" value="html">
+    CSS<input type="checkbox" name="hobby" value="css">
+    서버<input type="checkbox" name="hobby" value="server">
+    
+    
+    <!-- ===========================================================================-->
+    
+    <!-- radio 버튼은 name으로 그룹을 묶어주고, 그룹중에 오직 1개만 체크가 가능하다.-->
+    <!-- checked 처럼 혼자 쓰여도 되는 것은 property라고 부름-->
+
+   남<input type="radio" name="sungbyu1" value="남자" checked>
+   여 <input type="radio" name="sungbyu1" value="여자" ><br>  
+    <input type="button" value="누를까요?" onclick="f_sungbyu1(this.value)">
+
+    <!--태그와 스트립트 순서(Sequence)에 주의 해야한다. 인터프리티(줄단위 실행) 방식-->
+     <input type="text" value = "" placeholder="이름입력" id = "id_text" ><br>
+    <input type="button" value="눌러봐라" onclick="f_text()">
+    
+<script>
+    function f_sungbyu1(p_this){
+        console.log("this는 누구인가?" ,p_this);
+
+        var v_hobby=" "; // 빈 문자열로 초기화
+        var v_ckboxs = document.getElementsByName("hobby");
+        for(var i=0; i<v_ckboxs.length; i++){
+            if(v_ckboxs[i].checked){
+                v_hobby += v_ckboxs[i].value + " ";
+                // 계속 찾아야 하므로 break가 있으면 안됨
+            }
+        }
+        alert("당신의 취미는" + v_hobby + "입니다.");
+
+
+
+
+
+        /*    
+        var v_radops = document.getElementsByName("sungbyu1");
+        console.log(v_radops);
+        for(var i=0; i<v_radops.length; i++){
+           // console.log(v_radops[i].checked);
+           if(v_radops[i].checked){  // 원래는 checked == true 이며 ==true 생략 가능
+            alert("당신은" + v_radops[i].value + "입니다.");
+            break;  // function안에 있기 때문에 retrun을 써도 무방하다.
+         }
+        }
+        */
+    }
+
+
+
+ //   id_text.value = "이부분이스크립트로 초기화" // placeholder="이름입력" 보여주는부분
+
+</script>
+<!--
+ <input type="text" value = "" id = "id_text" ><br>       여기에 실행하면 value 가 생성전이라서
+ <input type="button" value="눌러봐라" onclick="f_text()">  오류가 뜬다.
+-->
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<script>
+
+    // 함수 매개변수(parameter)
+    
+    function f_a1(a_arg){
+    console.log("이것의 타입은" + typeof(a_arg) + "데이터 값은" + a_arg);
+    return "이미 함수로 속해 있다.";
+    console.log(f_a1);
+    // a_arg가 의미하는 것 
+    // f_a1의 함수가 뒤의 함수를 실행시키기 위해 필요한 매개변수이다. 
+    // 다른 말로 Callback 함수라고 불린다.
+
+  }
+    
+  // 선언한 배열을 넘기는 것.
+  // 자동으로 toString이 실행되어 안의 값이 나온다.
+  f_a1("응가");
+  f_a1("배가아파요");
+  f_a1(3000);
+  f_a1(!0);
+  f_a1(["이","몸","등","장"]);
+
+   function f_a2(){
+    alert("이게 맞냐?");
+    return "집가고싶다";
+  }
+
+    // 함수 넘기기  
+    f_a2(function(){
+        alert("함수 넘기기");
+})
+    
+     console.log(f_a2()); 
+     
+
+   //  f_a1(f_a2());
+     
+
+    // f_a3(f_a2());
+
+//   console.log(f_a1);
+
+
+
+
+
+
+</script>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--14:33분 2번째 파일-->
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="/js/mylib.js"></script> <!-- 라이브러리 호출-->
+</head>
+<body>
+    <div id = "id_disp"> </div>
+    <script>
+        // 타이머와 랜덤
+        // 스크립트 타이머는 정확하지 않기로 유명(대략 맞음) ☆☆☆☆
+
+      //  setTimeout(함수포인터,시간(밀리초), 매개변수1, 매개변수2....) 의 형식으로 쓰인다
+      //  예를들어 시간이 1000 =1초뒤에 함수포인터를 부른다.
+
+      //===================================================================================
+      /*
+      function f_after(){
+        alert("얼마나 시간이 걸렸는가?");
+      }
+
+      setTimeout(f_after,2000); // 2초뒤에 불린다. 자바의 sleep과 비슷한효과
+*/
+//=========================================================================
+    /*
+function f_after(p_arg, p_arg2){
+        alert("얼마나 시간이 걸렸는가?" + p_arg + p_arg2);
+      }
+      // ( ) 이게 바로 함수호출 하는 키워드
+      // 함수명에 () 를 붙이면 바로 실행된다. f_after() 이렇게 하면 바로실행됨
+      setTimeout(f_after,2000,"오늘은","2초뒤에 도착했다."); // 2초뒤에 불린다. 자바의 sleep과 비슷한효과
+
+      // 앞에 실행문이 끝나야 뒤에 나오는 실행문이 실행되는 Synchronouse 방식이라고 한다. 동기 방식
+      // 앞에 실행문이 실행 도중 뒤에 실행문이 실행되는 것을 ASynchronouse 방식이라고 한다. 비동기 방식
+      // setTimeout은 대표적인 비동기함수에 해당한다.
+      alert("무엇이 먼저 실행되는가?");
+*/
+
+/*
+for(var i=1; i<=100; i++){
+         var v_ranNumber = Math.random(); // 랜덤함수 (0< ? < 1) 사의의 숫자가 발생.
+        id_disp.innerHTML += "<h4>" + v_ranNumber + "</h4>";
+     }
+
+     */
+
+     /*
+     // 만약 1~10까지 숫자를 발생시켜야 한다면
+for(var i=1; i<=100; i++){
+         var v_ranNumber = Math.ceil(Math.random()*10); // 랜덤함수 (0< ? < 1) 사의의 숫자가 발생.
+            // Math.ceil 올림 표시
+         id_disp.innerHTML += "<h4>" + v_ranNumber + "</h4>";
+     }
+*/
+
+/*
+     // 만약 0~10까지 숫자를 발생시켜야 한다면
+for(var i=1; i<=100; i++){
+         var v_ranNumber = Math.floor(Math.random()*11); // 랜덤함수 (0< ? < 1) 사의의 숫자가 발생.
+            // Math.ceil 버림 표시
+         id_disp.innerHTML += "<h4>" + v_ranNumber + "</h4>";
+     }
+  */
+    
+
+  /*
+     // 문제 65~ 100까지 발생시켜 보시오
+     // 힌트 65~100은 65 + (0~35) 라고 생각할수 잇다.
+for(var i=65; i<=100; i++){
+         var v_ranNumber = (Math.floor(Math.random()*36)) + 65 ; // 랜덤함수 (0< ? < 1) 사의의 숫자가 발생.
+            // Math.ceil 버림 표시
+         
+     }
+   */
+ //======================================================================================
+/*
+ // 중복된 표현을 없애는 것이 좋다.
+ // from ? to ? 랜덤 정수를 발생시키는 함수
+ for(var i=65; i<=100; i++){
+     id_disp.innerHTML += "<h4>" + f_ranNum(100,200) + "</h4>";
+     }
+
+ function f_ranNum(p_start, p_end){
+     return Math.floor(Math.random()*(p_end-p_start+1) + p_start); 
+    }
+  */
+ 
+  
+     // 중복된 표현을 없애는 것이 좋다.
+ // from ? to ? 랜덤 정수를 발생시키는 함수
+ // js 폴더에 라이브러리를 만듬
+ for(var i=65; i<=100; i++){
+     id_disp.innerHTML += "<h4>" + f_ranNum(100,200) + "</h4>";
+     }
+     
+
+    </script>
+
+
+    
+</body>
+</html>

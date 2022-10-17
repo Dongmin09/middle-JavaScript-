@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--07-29 16:05 시작-->
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #id_ball{
+            transform: rotate(45deg); 
+            /* transform: skewX(45deg); 찌그러뜨리기*/
+            position: absolute;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            background-image: url("../images/mylee.jpg");
+            background-size: 100px 100px;
+            border-radius: 50px 50px; /* width height의 절반을 주면 똥그라미 */
+        }
+        
+        #id_bar{
+            position: absolute;
+            width: 200px;
+            height :30px;
+            background-color: aquamarine;
+            top: 450px;  /* bottom 에서 top으로 고침
+                            움직임을 구현할 때는 left, 
+                            top으로 많이 쓰고 bottom, right는 잘 안씀 */ 
+        }
+        
+        
+        
+        </style>
+
+
+
+</head>
+<body>
+<h1>과제는 막대가 벽에 닿으면 더 안들어가게 하기     </h1>
+<h1>과제는 막대에 공이 닿으면 튕겨내기</h1>
+<div id="id_ball"></div>
+<div id="id_bar"  ></div>
+<input type="button" value="눌러봐~" onclick="f_proxy()">
+<input type="button" value="멈출거임" id="id_stop">
+<script>
+
+    var v_stop = document.querySelector("#id_stop");
+    // 이벤트 등록법 2번
+   // v_stop.onclick = function(){
+   //     alert("난 멈춘당");
+   // }
+
+   
+   v_stop.addEventListener("click", function(){
+       alert("난 addEventListener를 이용한 이벤트이다.");
+    });
+    
+    //이벤트 등록법 3번 권장되는 최신버젼, 하지만 상황에 따라 골라 씀
+     v_stop.addEventListener("click", function(){
+         alert("난 addEventListener를 이용한 이벤트이다.");
+     });
+
+
+    // // 데이터가 덮어져 쓰여진다. 자바로 따지면 OverRiding
+    // v_stop.onclick = function() {
+    //     alert("나는 월요병에 걸렸다.");
+    // }
+
+
+
+
+    var isStart = false; // 이런 변수를 flag 변수, switch 변수라고 부른다
+    function f_proxy(){  //Proxy 패턴이라고 불리며 아주 중요
+        if(!isStart){    // 직접 제어하는 것이 아닌 머리 아플때.
+            f_move();    // 머릿속에 대리인을 생각한다.
+            isStart = true;
+        }
+    }
+
+
+    // javascript에서 브라우져의 탭 하나 하나를 window라는 키워드로 부른다.
+    // javascript는 window 안에서 돌아간다. window안에 URL이 바뀌면
+    // 이전에 선언된 모든 (변수, 함수) 등등은 사라진다.
+    
+
+  var v_ball = document.querySelector("#id_ball");
+  var v_bar = document.querySelector("#id_bar");
+  var v_mvWidth=5;
+  var v_mvHeight=5;
+  console.log("width:",window.innerWidth); // 사용자가 보는 화면 넓이값
+  console.log("height:",window.innerHeight); // 사용자가 보는 화면 높이 값
+  // 왜 안움직일까?
+  // 오른쪽 벽을 맞고 튕겨나오기.
+  var v_gakdo =0;
+
+  
+  
+  
+  function f_move(){
+
+        if(!v_ball.style.left){
+            v_ball.style.left = "0px";
+            v_ball.style.left = "50px";
+
+            v_bar.style.left = "30px";
+            v_bar.style.top="450px";
+        }
+
+
+
+      //  v_ball.style.left = "100px";
+    //   if(!v_ball.style.left){ // 해당 태그내에 정의가 되어잇지않다면.
+    //     v_ball.style.left ="0px";
+    //     v_ball.style.top = "50px";
+    // }
+
+    v_ball.style.left = parseInt(v_ball.style.left) + v_mvWidth + "px";
+    v_ball.style.top = parseInt(v_ball.style.top) + v_mvHeight + "px";
+    
+  
+
+    v_gakdo = v_gakdo +5;
+    v_ball.style.transform = "rotate(" + v_gakdo + "deg)";
+    
+        var v_ballLeft = parseInt(v_ball.style.left);
+        var v_ballRight = parseInt(v_ball.style.left) + 100; // ball의 width 100   
+        var v_ballTop = parseInt(v_ball.style.top); 
+        var v_ballBottom = parseInt(v_ball.style.top) +100; // ball의 height 100
+
+        var v_barTop = parseInt(v_bar.style.top)+450;
+        var v_barLeft = parseInt(v_bar.style.left);
+        var v_barRight = v_barLeft+200;
+
+
+        var chk1   = v_ballRight >= v_barLeft; // 비교연산자결과는 true/false
+        var chk2 = v_ballLeft <= v_barRight;
+        var chkResult = chk1 && chk2;
+        
+
+                // 막대기와 공 충돌, 구현 좌우 범위 안에서 공의 bottom이 막대 top을 만났을때
+                if((v_ballBottom >= v_barTop) && chkResult){
+                    v_mvHeight = -v_mvHeight; // y축 움직임 반대로
+                }
+
+
+
+                
+                //2코드를 합치는 방법 (Or 연산) (좌우)
+                if(v_ballRight >= window.innerWidth || v_ballLeft<=0){
+                    //  v_ball.style.transform = "skewX(45deg)"; 찌그러지는 코드
+                    v_mvWidth = -v_mvWidth;  // 부호 반전
+                }
+                
+                //상하충돌 코드를 합치는 방법
+                if(v_ballBottom > window.innerHeight|| v_ballTop < 0){
+                    // v_ball.style.transform = "skewX(45deg)"; 상하로 부딪혔을때 찌그러지는 코드
+                    v_mvHeight = -v_mvHeight; //부호 반전
+                    
+                }
+                
+                
+                
+    setTimeout(f_move,50);
+
+    
+}
+
+
+//   if(!v_bar.style.left){ // 해당 태그내에 정의가 되어잇지않다면.
+    //         v_bar.style.left ="0px";
+    //     }
+    
+    
+    window.onkeydown = function(){
+        
+        
+        //alert(event.keyCode); // 누른 키값 확인 좌 37 , 우 39  
+        if(event.keyCode == 37 ){ // 왼쪽 화살표
+            v_bar.style.left = parseInt(v_bar.style.left) -10 + "px";
+        }
+        if(event.keyCode == 39){ //오른쪽 화살표
+            v_bar.style.left = parseInt(v_bar.style.left) +10 + "px";
+        }
+        
+        if(parseInt(v_bar.style.left)<=0){
+            //  v_ball.style.transform = "skewX(45deg)"; 찌그러지는 코드
+            v_bar.style.left = parseInt(v_bar.style.left) + 10 + "px";
+        }
+        
+        if(parseInt(v_bar.style.left)+200>= window.innerWidth){
+            //  v_ball.style.transform = "skewX(45deg)"; 찌그러지는 코드
+            v_bar.style.left = parseInt(v_bar.style.left) - 10 + "px";
+        }
+        
+        // if(v_ballBottom > v_bartop){
+            //          // v_ball.style.transform = "skewX(45deg)"; 상하로 부딪혔을때 찌그러지는 코드
+            //          v_mvHeight = -v_mvHeight; //부호 반전
+            //         }
+        }        
+        
+        
+        //v_barRight >= window.innerWidth || 
+        </script>
+</body>
+</html>

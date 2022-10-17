@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--17:00 시작-->
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        // 전역변수 -> 페이지 전체 어디서에서든 접근할 수 있는 변수
+        // function 안에서 선언되었는가?, 밖에서 선언되었는가? 포인트.
+        var v_myName = "홍길동"; // 전역변수
+        function f_memory(){
+
+            
+
+            
+            var v_myName = "홍길동222222"; // 지역변수
+            alert(v_myName); //?
+            
+        }
+        f_memory();  //  뜸
+       // alert(v_memory2); // ?  안에서 지정되서 안뜸
+*/
+
+        //============================================
+       /* var v_myName = "홍길동"; // 전역변수
+        function f_memory(){
+
+            for(var i=10; i<111; i++){
+                console.log("i값은 얼마인가?");
+            }            
+
+            alert(i); // function 안에서 계속 살아있어서 111이 나온다.
+        }
+        f_memory();  //  뜸 */
+//======================================================
+
+        // 간략계산기 함수 (4칙 연산 각각 함수를 리턴)
+
+        //222+333 -111
+
+        
+       // f_cal = ("-")(f_cal("+")(222,333),111);
+       //alert(f_cal("-")(f_cal("+")(222,333),111));
+
+       // 위와 같은 의미
+       var v_plusResult = f_cal("+")(222,333);
+       alert(f_cal("-")(v_plusResult,111));
+
+        // alert(f_cal("+")(111,222));
+        // alert(f_cal("-")(333,222));
+        // alert(f_cal("*")(1,222));
+        // alert(f_cal("/")(111,11));
+
+        function f_cal(p_operator){
+            if(p_operator == "+"){
+                return function(p_a,p_b){
+                    return p_a + p_b;
+                }
+            }
+            
+            if(p_operator == "-"){
+                return function(p_a,p_b){
+                    return p_a - p_b;
+                }
+            }
+        
+            if(p_operator == "*"){
+                return function(p_a,p_b){
+                    return p_a * p_b;
+                }
+            }
+        
+            if(p_operator == "/"){
+                return function(p_a,p_b){
+                    return p_a / p_b;
+                }
+            }
+        
+        }
+
+
+    </script>
+    
+</body>
+</html>

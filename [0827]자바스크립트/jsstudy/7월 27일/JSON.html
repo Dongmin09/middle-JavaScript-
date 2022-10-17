@@ -1,0 +1,78 @@
+<!DOCTYPE html> <!-- 7월 27일 14:18분-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<script>
+    // 2022-07-27 16:56 이어서 시작
+    /*
+    var v_obj ={
+        "names" : ["홍길동", "이순신", "성춘향", "고길동", 
+                ["둘리", "도라에몽", "노진구", "이슬이"]],
+        "sides" : {
+                "friends" : ["손오공", "손오반", "천진반", "피콜로"]
+        }
+    }
+
+    alert(v_obj.names[4][2]); // 노진구 
+    alert(v_obj.sides.friends[0]); //손오공
+    
+    */
+
+    var v_obj ={};
+    v_obj.names = ["홍길동", "이순신", "성춘향", "고길동", ["둘리", "도라에몽", "노진구", "이슬이"]];
+    v_obj.sides = {};
+    v_obj.sides.friends = ["손오공", "손오반", "천진반", "피콜로"];
+
+    console.log(v_obj); // 눈으로 데이터 모습을 자주 확인해야하지만 금방 익숙해짐
+
+    alert(v_obj.names[4][2]); // 노진구 
+    alert(v_obj.sides.friends[0]); //손오공
+
+    // ==================2022-07-27 17:10분까지 내용 =====================
+
+    //JSON ->  JavaScript Object Notation -> 자바 스크립트 객체 명명법
+    //JSON은 정말 중요하며 절대로 모르면 안된다.
+    //XML을 죽이 데이터 전송 포맷으로 자라잡음
+    //심지어 설정파일 형식으로 다숑됨
+    //객체지향 데이터베이스의 출현의 핵심
+    //데이터 전송포맷으로 사용할땐 일반적으로 metho는 넣지 않는다.
+
+    /*
+    var v_obj ={}; // new Object();
+    v_obj.name = "살어리 낫다 살어리 낫다"; // 속성추가
+    v_obj.sound ="한이 많은 목소리"; // 속성추가
+    v_obj.sound ="한이 겁나 많은 목소리"; // 속성추가
+
+    v_obj.getName=function(){    // 메소드 추가, 데이터전송 포맷으로
+        return this.name;
+    }
+    */
+
+    //delete v_obj.name;  // 속성제거
+    // alert(v_obj.getName()); //?
+
+    /*
+    var v_obj = {};
+    v_obj["name"] ="너무 잠이 솔솔"; // 배열식 표기, 연관배열, 자바의 MAP
+    v_obj["나이는?"] = 35;
+  //  v_obj.0aaa = "실행되는가?"; // 변수명은 숫자로 시작할 수 없다 .규칙임.)
+                                // 특수문자는 _와 $만 사용가능
+
+    v_obj["0"] = "이건실행되는가?";
+    alert(v_obj["name"]);
+    alert(v_obj.name);
+    
+    // 자바스크립트에선 namespace를 만들 때 빈 객체를 이용하여 만든다.
+    System.out = {}; // 빈 객체 속성으로 객체 추가
+    var System = {}; //  빈 객체 생성(없다는 개 아니고, 객체는 있는데 속성이 없는 것)
+    System.out.print = function(p_args){
+        console.log(p_arg)
+    }
+
+    System.out.print("이건 자바가 아니다");
+    System.out.print("그저 자바를 흉내내고 있다.");
+    System.out.print("스크립트를 잘하면 이런 문법을 많이 쓴다");
+    System.out.print("이유는 , 다른사람이 헷갈리게 하기위해서");
+*/
+
+</script>

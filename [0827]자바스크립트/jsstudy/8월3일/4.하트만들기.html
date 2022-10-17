@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #heart{
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        width: 300px;
+        height: 300px;
+     /*   border: 1px solid black; */ 
+        overflow: hidden;
+        transform: rotate(0deg);
+       /* transform-origin: right bottom; 회전 중심 설정*/
+    }
+    .common{
+        position: absolute;
+        border-radius: 50%; /*모서리 둥글게 만들기*/
+        background-color: pink;
+        width: 100%;  /*부모 기준으로 따라가게됨*/
+        height: 100%; /*부모 기준*/
+    }
+    #circle1{
+        left: 150px;
+    }
+    #circle2{
+        top: 150px;
+    }
+    /*
+    #point{
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        left: 300px;
+        top: 300px;
+        background-color: black;
+    }
+    */
+    #bar{
+        position: absolute;
+        width: 50px;
+        height: 300px;
+        background-color: blue;
+        left: 230px;
+
+    }
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        position: relative;
+        left: 300px;
+        top: 300px;
+        border: 1px solid mediumpurple;
+        transform-origin: center top;
+    }
+</style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="bar"></div>
+        <div id="heart">
+            <div id="circle1" class="common"></div>
+            <div id="circle2" class="common"></div>
+        </div>
+    </div>    
+<script>
+    var v_wrapper = document.querySelector("#wrapper");
+    var v_gak = 0;
+    function f_rotate(){
+
+        v_gak = (v_gak +10) % 360; // 360도 나눈 나머지, 숫자 크기가 안전해진다.
+        v_wrapper.style.transform = "rotate(" + v_gak + "deg)"
+        setTimeout(f_rotate,50);
+    }
+    f_rotate(); // 함수 콜백
+</script>
+</body>
+</html>

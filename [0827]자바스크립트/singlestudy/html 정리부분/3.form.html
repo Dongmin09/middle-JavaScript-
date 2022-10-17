@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼(from)</title>
+</head>
+<body>
+    <!-- form은 body 안에 적어야 하며 속성으로 action과 method 와 같은 속성을 사용할 수 있다. -->
+    <!-- action 속성은 form 태그를 전송할 대장서버를 입력하는 부분이다. -->
+    <!-- method 액션속성에 어떠한 타입으로 전송할건지 타입을 정하는 부분이다.-->
+    <form action="" method="">
+        <label for>아이디</label><input type="text" id="id">
+        <!-- input 폼 형테에서 사용할 수 있다. input 타입의 형태에 따라 바꾸게 나올수 잇다. text 글자 상자
+            password 같으면 입력 글자를 ***으로 안보이게 등 의 예시가 있다.
+            한줄만 입력되서 한줄 입력 요소를 가지고 있다.-->
+        <!-- text, password, checkbox, radio 등등 많은 속성을 가지고 있다.  -->
+        <!-- inptut 태그와 함께 주로 사용되는 라벨이라는 태그가 같이쓰인다 무엇을 입력해야하는지 표현 하는것이
+            라벨이라는 태그이다. -->
+        <!-- 라벨 속성의 for 과 input 태그 속성의 id 속성을 이름을 같게 사용한다면 조금더 편리하게 사용할 수 있다. -->
+        <!-- labe은 암묵적인 속성, 명시적인 속성으로 표현이 가능함. -->
+        <!--  <label for>아이디</label><input type="text" id="id"> 명시적인 방법 -->
+        <label>아이디: <input type="text"/> </label> <!-- 암묵적인 방법 -->
+        <fieldset>
+            <legend>기본 정보</legend> <!-- 그룹화환 필드셋의 이름을 지정할때 사용 -->
+        </fieldset> <!-- 상호작용을 그룹화 할때 사용 -->
+
+        <fieldset>
+            <legend>기본 정보</legend>
+            <label for="id">아이디:</label> <input type="text" id="id"><br> <!-- 인라인요소라서 줄바꿈이 안됨 -->
+            <label for="pw">비밀번호:</label> <input type="password" id="pw"><br>
+        </fieldset>
+        <fieldset>
+            <legend>옵션 정보</legend>
+            <label for="id">가족관계:</label> <input type="text" id="id"><br>
+            <label for="pw">생년월일:</label> <input type="text" id="pw"><br>
+        </fieldset>
+
+        <textarea></textarea> 
+        <!-- input 에서 한줄만 입력되는 것을 여러줄 입력할수잇게해줌 
+            현재에서는 row와 cols는 크기를 조정하기 위해 사용하지 않는다.-->
+
+        <select name="" id="">
+            <optgroup label="성별"> <!-- optgroup는 옵션 태그를 그룹화 할때 사용 -->
+            <option value="male">남</option>
+            <option value="female">여</option>
+            <!-- select 태그는 사용자가 둘장 하나를 골라야 하기 때문에 틀린 값을 고르지 않도록 도와준다. 
+                필수로 option 태그도 select 문 안에 적혀 있어야한다.-->
+                <!-- option 에서 value는 폼에서 서버로 보낼때 데이터를 value 부분을 전송한다. -->
+            </optgroup>
+        </select>
+
+        <select size="2">
+            <optgroup label="성별"> <!-- optgroup는 옵션 태그를 그룹화 할때 사용 -->
+                <option value="male">남</option>
+                <option value="female">여</option>
+                <!-- select 태그는 사용자가 둘장 하나를 골라야 하기 때문에 틀린 값을 고르지 않도록 도와준다. 
+                    필수로 option 태그도 select 문 안에 적혀 있어야한다.-->
+                    <!-- option 에서 value는 폼에서 서버로 보낼때 데이터를 value 부분을 전송한다. -->
+            </optgroup>
+        </select> <!-- select size 속성 : select 박스에서 갯수를 정하고 보여주기위해 사용 -->
+
+        <select multiple> <!-- multiple 속성 : select 박스에서 1개 이상을 선택하여 사용할 수 있다.-->
+            <optgroup label="성별"> <!-- optgroup는 옵션 태그를 그룹화 할때 사용 -->
+                <option value="male">남</option>
+                <option value="female" selected>여</option>
+                <!-- select 태그는 사용자가 둘장 하나를 골라야 하기 때문에 틀린 값을 고르지 않도록 도와준다. 
+                    필수로 option 태그도 select 문 안에 적혀 있어야한다.-->
+                    <!-- option 에서 value는 폼에서 서버로 보낼때 데이터를 value 부분을 전송한다. -->
+            </optgroup>
+        </select>
+
+        <!-- 실무에서 자주 사용하는 속성 selected : 항상 먼저 쓰인 윗줄이 표현이 되지만 아랫줄먼저
+            표현하고싶으면 selected 를 사용하면 그 부분부터 먼저 표시되게 할 수 있다.-->
+    </form>
+</body>
+</html>

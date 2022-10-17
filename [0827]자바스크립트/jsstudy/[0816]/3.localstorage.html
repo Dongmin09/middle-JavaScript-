@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+// html:5 발표 당시 html:4와 크게 달라진 점으로 부각되었던 것이
+// 멀티미디어(video/audio), 로컬저장소(offline 상황 대응)
+// 브라우져 밖의 카메라, 마이크, 스피커 등등 주변기기에 접속(WebRTC라고 부른다.)
+// RTC -> RealTime Communication, 
+// 필수 조건이 보안상 https 프로토콜이어야 한다. 
+// (openSSL을 쓰면 셀프 인증서를 만들 수 있다.) -> localhost에서만 사용가능하다.
+
+// sessionStorage localStorage와 정확히 사용방법이 똑같다.
+// 단지 데이터가 자동으로 사라진다.(브라우져에서 나가거나, 페이지를 벗어나가면)
+// ☆☆☆문자열만 저장이 가능하다. (엄청나게 중요한 개념, 머리가 새겨서 외울 것.)
+
+var v_ydy = [1,2,3,4,5];
+alert(v_ydy.toString());
+
+
+localStorage.setItem("키값1", "김무건"); // 쓰기
+// setItem 메소드는 다른 언어 사용자의 편의를 위해 만들어 주엇다.
+localStorage.ydy = "천재윤다영이다.";
+localStorage.setItem("키값2", "최승훈");
+localStorage.setItem("키값3", "이준혁");
+localStorage.setItem("키값4", "이승연짱"); // 키값이 이미 있다면 그 키값이 update가 된다.
+// localStorage.setItem("테스트", ["1","2","3"]); //객체를 저장할려고 시도, 
+localStorage.setItem("테스트", JSON.stringify(["1","2","3"])); //객체를 문자열로 표현하기, 문자열밖에 저장되지 않는다.
+
+//localStorage.setItem("dongmin", {name:"동민",nickName:"태권브이"}); 
+// 키값은 문자열인데 value 값이 객체로와서 이상하게나온다.
+localStorage.setItem("dongmin", JSON.stringify({name:"동민",nickName:"태권브이"})); // 문자열이다.
+
+//var v_dongmin = localStorage.getItem("dongmin");
+//alert(v_dongmin.nickName); // 문자열은 length 밖에 없다. undefined가 나올것이다.
+// 다시 하기위해서는 문자열을 다시 객체로 변환해주어야 올바르게 값을 읽을 수 있다.
+// ★★★★ object <=> string, localStorage는 문자열만 저장이 가능하다.
+var v_dongmin = JSON.parse(localStorage.getItem("dongmin"));
+alert(v_dongmin.nickName);
+
+// 사용 포인트
+/*
+var v_question = localStorage.getItem("테스트");
+alert(typeof(v_question)); // 동민?
+// ["1","2","3"]
+alert(v_question[4]); // ? " 가 나온다.
+// 다시 배열로 바꾸기
+v_question = JSON.parse(v_question); // 문자열을 다시 객체로 바꾸기
+alert(v_question[2]); 
+*/
+
+
+
+
+// alert(localStorage.getItem("키값2")); // 읽어오기
+// alert(localStorage.length); // 6개 나옴
+// alert(localStorage.key(3)); // key 값 읽어오기
+
+/*
+    for(var v_key in localStorage){ // 객체 속성(key)를 읽을 때 사용
+        alert(v_key); //
+    }
+*/
+
+//localStorage.removeItem("키값3"); // 지우기
+//localStorage.clear(); // 모두 지우기, 사용자는 브라우져 마우스 오른쪽 버튼으로도 지울 수 있다. 
+
+</script>

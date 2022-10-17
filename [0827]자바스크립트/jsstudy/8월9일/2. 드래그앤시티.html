@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #id_files{
+        position: relative;
+        left: 30px;
+        top: 100px;
+        width: 500px;
+        height: 100px;
+        border: 3px solid aquamarine;
+    }
+</style>    
+</head>
+<body>
+    <div id="id_files" ondragover="f_dover()" ondrop="f_drop()">
+        이곳에 파일을 넣는다.
+    </div>
+<script>
+    var v_drop = document.querySelector("#id_files");
+    // dragover, drop 두 이벤트를 막아야만 브라우져가 자동으로 파일 여는 걸
+    // 막을 수 있다.
+
+    function f_dover() {
+        event.preventDefault();
+    }
+
+    // 파일 1개만 읽는 함수
+    function f_readFile(p_file) {
+        var v_fileReader = new FileReader();
+        v_fileReader.onload = function(){ // 다 읽으면 자동 이벤트발생
+            var v_img = document.createElement("img");
+            v_img.src = v_fileReader.result;
+            v_img.setAttribute("width",100);
+            v_img.height = 100;
+            v_drop.appendChild(v_img); // 이걸 안하면 안 보여용
+        }
+        v_fileReader.readAsDataURL(p_file);
+    }
+
+    function f_drop() {
+        v_drop.innerHTML = ""; // 들어간 사진을 다시 넣기위해서는 클리어가 필요하다.
+        event.preventDefault();
+        // 이 부분에만 필요한 작업을 해주면 된다.
+        console.log(event.dataTransfer.files);
+        var v_files = event.dataTransfer.files;
+        for(var i=0; i<v_files.length; i++){
+            f_readFile(v_files[i]);
+        }
+    }
+
+        // var v_file = event.dataTransfer.files[0]; // 파일 1개만 넣기
+        // var v_fileReader = new FileReader();
+        // v_fileReader.onload = function(){  // 파일을 다 읽으면 자동 이벤트 발생
+        //     var v_img = document.createElement("img");
+        //     v_img.src = v_fileReader.result; // 읽은 내용을 result라는 속성에 가진다
+
+        //     v_img.setAttribute("width", 100); // 이미지가 너무 크기 때문에 크기를 맞춰줘야함 
+        //     v_img.height = 100;               // (위나 아래나 같은 문임 주로 아래 문이 자바스크립트 형식임)
+        //     v_drop.appendChild(v_img);        // 이 코드가 있어야 그림이 보인다.
+        // }
+
+        // v_fileReader.readAsDataURL(v_file);
+        // }
+    
+
+
+// 설정한 네모의 크기만 막을 수 있고 나머지 주변은 막아주지 않아서 
+// 똑같이 사진을 가져다 놓으면 웹 설정으로 똑같이 탭으로 열림
+// window.addEventListener를 사용하여 주변배경도 다 막아야됨.
+window.addEventListener("dragover", function(){
+    event.preventDefault();
+});
+
+window.addEventListener("drpp", function(){
+    event.preventDefault();
+
+});
+</script>    
+</body>
+</html>

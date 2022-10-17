@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+        #id_parent{
+            position: relative;
+            left: 250px;
+            top: 200px;
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            border: 50px groove pink;
+
+           /* overflow: hidden;  넘치는 부분을 잘라라.*/
+           /* overflow: scroll; 스크롤바가 생김*/
+           /* overflow: auto; 자동으로 맞춰라*/
+
+            overflow: hidden; 
+        }
+        .child{
+            position: absolute;
+            width: 820px;
+            height: 200px;
+            border: 5px solid blue;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+        }
+</style>
+
+</head>
+<body>
+    <h1>전자앨범 만들기.</h1>
+    <div id="id_parent">
+        <div id="id_child1" class="child" >
+            <img src="../images/mylee.jpg" >
+            <img src="../images/mylee2.jpg" >
+            <img src="../images/mylee3.jpg" >
+            <img src="../images/mylee2.jpg" >
+        </div>
+        <div id="id_child2" class="child">
+            <img src="../images/지구폭발1.jpg" >
+            <img src="../images/지구폭발2.jpg" >
+            <img src="../images/화산폭발3.jpg" >
+            <img src="../images/지구폭발4.jpg" >
+        </div>
+    </div>
+<script>
+    var v_child1 = document.querySelector("#id_child1");
+    var v_child2 = document.querySelector("#id_child2");
+
+    var v_mvWidth = 10;
+    function f_move(){
+        v_child1.style.left = parseInt(v_child1.style.left) - v_mvWidth + "px";
+        v_child2.style.left = parseInt(v_child2.style.left) - v_mvWidth + "px";
+
+        // 다 이동했을 때 처음인 child1로 돌아가는 코드
+        if(parseInt(v_child2.style.left)== 0) v_child1.style.left ="820px";
+        if(parseInt(v_child1.style.left)== 0) v_child2.style.left ="820px";
+
+        
+
+
+        setTimeout(f_move, 10);
+
+    }
+
+    // 페이지 로딩이 끝나면 자동으로 발생하는 이벤트
+    // window.onload
+    window.onload = function(){
+        if(!v_child1.style.left){ // 스크립트를 활용한 css 초기화 하는 방법
+            v_child1.style.left = "0px";
+            v_child2.style.left = "820px";     
+        }
+
+
+        f_move();
+    }
+</script>    
+</body>
+</html>

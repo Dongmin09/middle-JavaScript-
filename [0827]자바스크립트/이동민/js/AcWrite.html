@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가계부</title>
+</head>
+<body>
+    <h1>가계부 작성</h1>
+    <br>
+    <!-- <table style="border: 2px; border-style: groove; border-color: blue;"> -->
+    <form id="id_wform" action="AcWrite_action.html" method="get">
+    <table border="1">
+        <tr>
+            <td>대분류</td>
+            <td>
+                <select name="nm_mCategory" id="">
+                        <option value="saving">적금</option>
+                        <option value="fExpenses">고정지출</option>
+                        <option value="vSpending">변동지출</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>사용출처</td>
+            <td><input type="text" name="nm_uHistory" value="" required></td>
+        </tr>
+        <tr>
+            <td>소분류</td>
+            <td>
+                <select name="nm_sCategory"  >
+                    <option value="saving">적금</option>
+                    <option value="luxury">사치</option>
+                    <option value="commCost">통신비</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>금액</td>
+            <td><input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" name="nm_cAmount" value="" required></td>
+        </tr>
+        <tr>
+            <td>날짜</td>
+            <td><input type="date"  name="nm_ndate" value=""></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="작성 하기">
+                <input type="reset" value="다시 쓰기">
+            </td>
+        </tr>
+    </table>
+    </form>
+    <script>
+        var v_form = document.querySelector("#id_wform");
+        var v_nNdata = document.querySelector("input[name=nm_ndate]");
+        
+        v_form.onsubmit = function(){
+            event.preventDefault(); // 이벤트 막기
+            if(!v_nNdata.value){
+                alert("날짜를 선택해주세요");          
+                return;
+            } 
+            v_form.submit(); // 전송
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<style>
+  .wrapper{
+    position: relative; /* static을 만들어 진뒤 이동함*/
+    width: 220px;
+    height: 340px;
+    
+    left: 100px;
+    top: 100px;
+    
+    border : 1px  solid red;
+    
+  }
+  .panel{
+    position: absolute; /* 부모(relative)가 모서리 기준으로 움직이게 됨
+                           -부모 relative -자식 absolute 관계가 가장 많이쓰이는 형식
+                           처음부터 줘서 만들지는 않음(필요한 부분에만 사용)     */
+    border: 1px solid blue;
+    
+    /*
+    left: 100px;
+    top: 100px;
+    */
+  }
+</style>
+<script>
+    
+    // 오늘의 과제. setTimeout 을 통해서 layer가 자동으로 넘어가게 하기.
+    var v_layers; // 아직 해당 태그가 만들어지지 않아서 전역변수로 선언만함.
+    var v_text;
+
+
+    // window.onload 이벤트 자동 발생 시점은 html 태그가 다 해석이 끝나고
+    // 페이지 내의 이미지 로딩까지 끝나면 발생한다. 아주 중요
+    window.onload = function() {
+        // alert("로딩과 이미지가 끝났다.");
+        v_layers = document.querySelectorAll(".panel");
+        v_text = document.querySelector("#id_text");
+        v_text.value = 1+ "/" + v_layers.length;
+    }
+
+
+    var v_lIndex =0;  // 초기값 
+    function f_initZindex(p_layers){
+        for(var i=0; i< p_layers.length; i++){
+            p_layers[i].style.zIndex = 1;
+        }
+        
+    }
+
+    function f_auto(){
+            setTimeout(f_next,1000);
+            return setTimeout(f_auto,1000);
+    }
+
+    f_auto();
+
+    
+       
+
+
+    function f_next(){
+
+       //  var v_layers = document.querySelectorAll(".panel");
+       // var v_text = document.querySelector("#id_text");
+        f_initZindex(v_layers);
+        v_lIndex++;
+        if(v_lIndex == v_layers.length) { 
+            v_lIndex =0; // 처음으로 되돌리깅
+        }
+
+        v_text.value = (v_lIndex+1) +"/" + v_layers.length;
+        v_layers[v_lIndex].style.zIndex = 999; // 가장 앞으로 끌어내오깅
+        // 뜬금없는 질문 마지막 index에서 처음 index로 가게 해 보삼
+        
+    }
+  
+    function f_prev(){
+       // var v_layers = document.querySelectorAll(".panel");
+       //var v_text = document.querySelector("#id_text");
+        f_initZindex(v_layers);
+        v_lIndex--;
+        if(v_lIndex == -1) { 
+            v_lIndex = v_layers.length -1; // 처음으로 되돌리깅
+        }
+        v_text.value = (v_lIndex+1) +"/" + v_layers.length;
+        v_layers[v_lIndex].style.zIndex = 999; // 가장 앞으로 끌어내오깅
+        // 뜬금없는 질문 마지막 index에서 처음 index로 가게 해 보삼
+    }
+</script>
+</head>
+<body>
+    <input type="button" value=" < " onclick="f_prev()">
+    <input type="text" id="id_text" value="" size="5">
+    <input type="button" value=" > " onclick="f_next()">
+    <div class="wrapper">
+        <div class="panel" style = "z-index:999;">
+            <table border="1">
+                <tr>
+                    <td><img src=".././images/지구폭발1.jpg" width="100" height="100"></td>
+                    <td><img src=".././images/지구폭발2.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src=".././images/지구폭발3.jpg" width="100" height="100"></td>
+                    <td><img src=".././images/지구폭발4.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src=".././images/지구폭발5.jpg" width="100" height="100"></td>
+                    <td><img src=".././images/지구폭발6.jpg" width="100" height="100"></td>
+                </tr>
+
+            </table>
+
+
+
+
+        </div>
+            <div class="panel" style = "z-index:119;">
+                <table border="1">
+                    <tr>
+                        <td><img src=".././images/화산폭발1.jpg" width="100" height="100"></td>
+                        <td><img src=".././images/화산폭발2.jpg" width="100" height="100"></td>
+                    </tr>
+                    <tr>
+                        <td><img src=".././images/화산폭발3.jpg" width="100" height="100"></td>
+                        <td><img src=".././images/지구폭발4.jpg" width="100" height="100"></td>
+                    </tr>
+                    <tr>
+                        <td><img src=".././images/화산폭발5.jpg" width="100" height="100"></td>
+                        <td><img src=".././images/화산폭발6.jpg" width="100" height="100"></td>
+                    </tr>
+    
+                </table>
+    
+    
+    
+    
+            </div>
+
+                <div class="panel" style = "z-index:222;">
+                    <table border="1">
+                        <tr>
+                            <td><img src=".././images/mylee.jpg" width="100" height="100"></td>
+                            <td><img src=".././images/mylee.jpg" width="100" height="100"></td>
+                        </tr>
+                        <tr>
+                            <td><img src=".././images/mylee.jpg" width="100" height="100"></td>
+                            <td><img src=".././images/mylee.jpg" width="100" height="100"></td>
+                        </tr>
+                        <tr>
+                            <td><img src=".././images/mylee.jpg" width="100" height="100"></td>
+                            <td><img src=".././images/mylee.jpg" width="100" height="100"></td>
+                        </tr>   
+                    </table>
+                </div>
+    </div>  
+    <script>
+        /*  전역 변수 조건으로 뺏음 
+            시퀀스(순서) 상 아래에 둬야함
+        var v_layers = document.querySelectorAll(".panel");
+        var v_text = document.querySelector("#id_text");
+         v_text.value = 1+ "/" + v_layers.length;
+         */
+    </script>  
+</body>
+</html>

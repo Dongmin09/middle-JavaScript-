@@ -1,0 +1,35 @@
+
+/* 보통 전체를 감싸는 div를 wrapper container라는 id나
+    class를 주는것이 관례 */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+div{ /* div 태그는 영역 구분*/
+    border: 3px solid rgb(175, 68, 68);
+}
+#wrapper{
+    width: 99vw;
+    height: 99vh;
+    border: 5px solid red; /* 눈으로 보임 */
+}
+#header{
+    height: 25%;
+}
+#middle{
+    height: 50%;
+}
+#footer{
+    height: 24%;
+}
+#side, #content{
+    display: inline-block;
+}
+#side {
+    width: 40%;
+    height: 100%;
+}
+#content{
+    width: 59%;
+    height: 100%;
+}

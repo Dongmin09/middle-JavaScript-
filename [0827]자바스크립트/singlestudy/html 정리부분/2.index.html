@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 필수 태그</title>
+ </head>
+ <body>
+    <!-- hn 태그-->
+    <!--h1~h6-->
+    <!--제목이나 주제와 같은 성격의 텍스트를 나타낼 때 사용하는 태그-->
+    <!-- 검색 엔진이나 타이틀의 검색에서 사용하는 정말 중요한 태그..-->
+    <h1>h1 tag</h1>
+    <h2>h2 tag</h2>
+    <h3>h3 tag</h3>
+    <h4>h4 tag</h4>
+    <h5>h5 tag</h5>
+    <h6>h6 tag</h6>
+    <!--p 태그-->
+    <!--단락(문단, 문장)을 나타낼 때 사용하는 태그-->
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+
+    <!--br 태그-->
+    <!-- 줄바꿈을 하기 위해 사용하는 태그-->
+    <p>Lorem ipsum dolor sit amet <br>
+        consectetur adipisicing elit</p>
+
+    <!--blockquote 태그-->
+    <!-- 인용문을 나타낼때 사용하는 태그-->
+    <!-- cite 속성을 사용가능하다-->
+    <!-- q 태그 : 인용문에서 사용하는 태그로 짧은 인용문
+    -->
+    <blockquote>인용된 내용을 작성한다.</blockquote>
+    <blockquote cite="https://naver.com/">인용된문서의html주소를알려줌(출처위치등)</blockquote>
+    <q cite="https://www.naver.com/">짧은 인용문</q>
+
+    <!--ins 어떠한 내용을 새롭게 삽입할 때 사용 하는 태그-->
+    <!-- ins del 어떠한 내용을 삭제할때 사용하는 태그-->
+    <br>
+    <ins>새롭게 삽입 추가되는 내용</ins><br>
+    <del>기존에 있었지만 삭제되는 내용</del><br>
+    
+
+    <!--sub, sup-->
+    <!-- sub 아래첨자를 표현, sup 는 윗 첨자를 표현-->
+    <p>공기의 원소 기호는 H <sub>2</sub> 0 이다.</p>
+    <p>4<sup>2</sup>는 16 입니다. </p>
+
+    <!--div, span-->
+    <!-- div 그룹을 짓기 위해서 사용하는 태그(블럭요소, 인라인요소 포괄적으로 사용)-->
+    <!-- 인라인 요소 텍스트를 그룹화하기 위해 사용하는 span 태그-->
+
+    <div class="moive" style="border: 3px solid red">
+        <h2>영화를 소개</h2>
+        <p>영화<span>소개</span>하는 페이지</p>  <!--소개부분을 작게 그룹화 할때-->
+    </div>
+    
+    <br>
+    <div id="tv">
+        <h2>tv 소개</h2>
+        <p>tv 프로그램 <span style="color: pink;">소개</span> </p>
+    </div>
+
+    <!-- 목록과 관련된 태그 대표적인 것
+        ul(unordered list) : 정렬되지 않은 리스트를 표현할 때 사용-->
+    <!--li(list item)-->
+    <ul>
+        <li>아이템1</li>
+        <li>아이템2</li>
+        <li>아이템3</li>
+    </ul>
+    <!-- ol(ordered list) : -->
+    <!--li(list item)-->
+    <ol>
+        <li>아침먹기</li>
+        <li>저녁먹기</li>
+        <li>점심먹기</li>
+    </ol>
+    <!--dl(definition list, desoription list): 어떠한것을 설명할때 사용하는 태그-->
+    <!--리스트 아이템을 추가할때 dt(desoription term), dd(desoription details)-->
+    <dl>
+        <dt>HTML</dt><!--설명할것 표시-->
+        <dd>HTml은 HyperTest Markup Language의 약자이다.</dd><!--설명할것의 내용-->
+    
+        <dt>CSS</dt><!--설명할것 표시-->
+        <dd>CSS은 Cacading Style sheets의 약자이다.</dd><!--설명할것의 내용-->
+    </dl>
+
+    <!-- 링크와 관련된 태그 -->
+    <!-- a 태그 : 다른 문서 또는 내부의 다른 영역과 연결할 때 사용 하는 태그-->
+    <a href="https://www.naver.com" target="_blank">네이버</a>
+    <br>
+    <!--a 태그의 경우 href의 속성을 필히 이용해야하고 href 는 하이퍼텍스트로 이동할 경로를 입력하면된다.-->
+    <!-- 주로 같이 쓰이는 속성의 경우 target이 있고 
+        타겟의 경우 blank의 속성의 경우 새탭을 열어서 이동시킨다.-->
+    
+    <!--img 태그-->
+    <!--이미지 태그의 src 속성은 내가 삽입할 이미지의 경로를 추가하는 것.-->
+    <!-- alt 라는 속성으로 이미지에 대한 설명을 적음-->
+    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20151214_197%2Fcfootee_1450073095621gPNFD_JPEG%2Fu2KIWnx.
+    jpg&type=sc960_832" alt="나">
+
+    <!-- 이미지 태그-->
+    <a href="https://search.naver.com/search.naver?sm=tab_hty.top&where=image&query
+    =%ED%9D%B0%EC%A1%B1%EC%A0%9C%EB%B9%84&oquery=1%EC%B4%88+%EC%B0%A8%EC%9D%B4&tqi=
+    hwf2RwprvToss5gMbC0ssssssFR-520774#imgId=image_sas%3Ablog54930561%7C45%7C220567968728_
+    2034472666">
+        <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20151214_197%2Fcfootee_1450073095621gPNFD_JPEG%2Fu2KIWnx.
+        jpg&type=sc960_832" alt="하얀족제비 쉑">
+
+    </a>
+    <br>
+    <!--강조를 표현하는 태그-->
+    <!--strong, em -->
+    <!--stron 태그 : 문장을 강조할 때 : 글씨가 굵게 표현-->
+    <!-- em 태그 : 단어를 강조할때 : 기울어져서 표현-->
+    <strong><em>경고</em> 이곳에 들어오면 모두 다 죽어!</strong>
+    
+
+
+ </body>
+</html>

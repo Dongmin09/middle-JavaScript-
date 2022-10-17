@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블</title>
+</head>
+<body>
+    <!-- table 속성인 border은 tr td th 부분에 줄을 그어 표처럼 보이게 만듬 -->
+    <table border="1"> <!-- 표를만들기 위한 태그 테이블! -->
+        <caption>
+            가격표
+        </caption> <!-- 한개정도를 쓰기 권장 (테이블 명칭 설명) -->
+        <!-- col 태그나  colgroup 태그 사용-->
+        <col style="width: 80px;"> <!-- col 해 그룹을  그룹화하여 스타일 지정 -->
+        <colgroup span="2" style="width: 150px;"></colgroup> <!-- 그다음 2개의 열 그룹화하여 스타일정의 -->
+        <col style="width: 90px;"> <!-- 남은 마지막 열을 그룹화하여 스타일 정의-->
+        <!-- css 태그가 발전하여 지금은 잘 쓰이지 않음 -->
+        <!-- scope 속성 -->
+        <thead> <!-- 그룹부분의 제목에 해당함. 그룹화 -->
+            <tr> <!-- 행을 만들때 사용 -->
+                <th>번호</th> <!-- 열을 만들때 사용  제목성격을 나타낼 때 th 사용-->
+                <th>상품명</th>
+                <th>수량</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+        <tfoot> <!-- 마무리 부분을 표현하고 그룹화 할때 사용 -->
+            <tr>
+                <td>총금액</td>
+                <td colspan="3">2000원</td> <!-- 몇개의 열을 병합할거냐 할때 사용 위의 그림 참조 -->
+            </tr>
+        </tfoot>    
+        <tbody> <!-- 내용의 부분을 그룹화 -->
+            <tr>
+                <td>나는</td> <!-- td는 일반적인 열을 표현할 때 사용 -->
+                <td>퉁퉁이</td>
+                <td>골목</td>
+                <td rowspan="2">1000</td> <!-- 행을 병합할때 사용 rowspan 에서 숫자는 이 행을 기준으로 몇칸까지할건지
+                                            를 의미하며 그 칸수만큼 다음 행 데이터가 정의를 안해줘야 깨지지않는다.-->
+            </tr>
+            <!-- 테이블 병합 기능 -->
+            <tr>
+                <td>3</td> <!-- td는 일반적인 열을 표현할 때 사용 -->
+                <td>카라멜</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>총금액</td>
+                <td>2000원</td>
+            </tr>
+        </tbody> 
+        <!-- 테이블에서 구조화하여 그룹화하는 작업이 필요하다  맨 윗줄은 제목과 같은 부분 나머지는 내용의 부분
+            이런식으로 나눠주는 기준 
+            1. thead 제목 부분 그룹화
+            2. tbody 내용 부분을 그룹화
+            3. tfoot 마무리 부분을 그룹화
+            주의할 점은 thead 를 하고 tfoot이 나온후 tbody 부분이 나와야 한다.
+        -->
+    </table>
+    
+</body>
+</html>

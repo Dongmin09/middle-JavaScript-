@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--07-29 15:18 제목 ??? -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .snack {
+            font-size: 20px;
+            /*
+            position: static; default 스태틱을 설정해놓으면 이동이 안됨.  
+            left: 100px;
+            top: 100px; 
+            */    
+
+            /*
+            position: relative;  static에 의해 자리가 잡힌 후 옮긴다는 의미
+            left: 100px;
+            top: 100px; 
+            border: 1px solid pink;
+            */
+
+            position: absolute; /* 화면 왼쪽모서리가 기준점이 되어버림, layer*/
+            border: 1px solid pink;
+        }
+
+
+        .pt{
+            left: 100px;
+            top: 100px;
+            background-color: aqua;
+            z-index: 200; /* z-인덱스가 큰값이 앞으로 나옴 값이 정해져있지는 않음.*/
+        }
+
+        .pt1{
+            left: 110px;
+            top: 110px;
+            background-color: blueviolet;
+            z-index: 110; /* z-인덱스가 큰값이 앞으로 나옴 값이 정해져있지는 않음.*/
+        }
+        .pt2{
+            left: 120px;
+            top: 120px;
+            z-index: 100; /* z-인덱스가 큰값이 앞으로 나옴 값이 정해져있지는 않음.*/
+        }
+
+        .pt3{
+            left : 50px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="snack pt2">고구마</div>
+    <div class="snack pt">감자</div>
+    <div class="snack pt1">호박고구마</div>
+    <div class="snack pt3">맥반석계란</div>
+</div>
+<input type="button" value="누르시오" onclick="f_move()">
+<script>
+    // 해당스티일 내에 스타일만 가져온다.
+    //var v_snk = document.querySelectorAll(".snack")[1];
+    //console.log(v_snk);
+
+
+     var v_snk = document.querySelectorAll(".snack")[1];
+    function f_move(){
+        if(!v_snk.style.left){ // 만약 inline style로 정의되어 있지 않다면
+            v_snk.style.left = "80px"; // 초기 스크립트로 세팅
+        }
+
+        // 누를때마다 10px씩 이동하고 싶은 경우
+        v_snk.style.left = parseInt(v_snk.style.left) + 10 + "px";
+
+       // alert("ppp" + v_snk.style.left+"ppp");
+        }
+    
+
+
+
+
+
+</script>
+
+</body>
+</html>

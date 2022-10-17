@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<!--frameset, frame는 보안문제로 쓰지 않지만, iframe은 현재도 쓰이고 있다.
+    마이크로소프트가 IE에 처음적용했고, 그 뒤에 표준이 됨.    
+-->   
+<h1>html 페이지 안에 html 페이지를 넣을 수 있다</h1>
+<input type="button" value="눌러요" onclick="f_check()">
+<input type="button" value="눌러붕붕" onclick="f_check2()">
+<iframe id="id_frm" src="../8월3일/3.overflow.html" width="600" height="600" frameborder="0"></iframe>    
+<script>
+    var v_ifrm = document.querySelector("#id_frm");
+    function f_check(){
+        v_ifrm.src ="../8월 2일/2. 유투브넣기.html";
+    }
+    function f_check2(){
+        console.log(v_ifrm.contentWindow);
+        console.log(v_ifrm.contentDocument);
+        var v_ifrmDoc = v_ifrm.contentDocument; // iframe인 html 문서
+        v_ifrmDoc.querySelector("h1").innerHTML = "바뀌는것";
+
+        var v_pat = v_ifrmDoc.querySelector("#id_parent").children;
+        for(var i=0; i<v_child.length; i++){
+            alert(v_childs[i].innerHTML);
+        }
+    // 크로스 오리진 -- 프로토콜 + 도메인명(서버명) + 포트번호(오리진의 구성요소이다 3가지는)
+    // 서버의 오리진과 외부의 오리진 주소가 다르면 마음대로 바꿀수 없다 이것을 크로스 오리진이라고 한다.
+    }
+</script>
+</body>
+</html>

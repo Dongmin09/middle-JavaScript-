@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>사용자 정의 속성(data-Defined- Attribute) </h1>
+    <div data-friend="박종환" 
+         data-hobby="웹툰" 
+         data-message-Merong="완전메롱">
+        <h1>태그마다 쓸 수 있는 속성은 정해져 있다.</h1>
+    </div>
+<script>
+
+    var v_div = document.querySelector("div"); // div 태그가 1개 밖에 없다.
+    alert(v_div.dataset.friend);
+    alert(v_div.dataset["friend"]);
+    alert(v_div.dataset.hobby);
+    alert(v_div.dataset.messageMerong);
+    alert(v_div.dataset["messageMerong"]);
+</script>    
+</body>
+</html>

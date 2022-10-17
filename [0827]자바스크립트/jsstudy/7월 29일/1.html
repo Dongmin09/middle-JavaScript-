@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 개발자가 알아야할CSS 07-29 14:22-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>개발자가 알아야할 css</h1>
+    <!-- 스타일 접근 방법-->
+   <!--
+    <div id="id_disp" style="display: none"> 자리도 사라지면서 없어짐
+    <div id="id_disp" style="display: block"> 다시 보임 -->
+    <div id="id_disp" style="display: block"> 
+        <h1>스타일 접근 방법</h1>
+    </div>
+
+    <input type="button" value="누르시오" onclick="f_click()">
+<script>
+   
+ //   function f_click(){
+
+       //      var v_disp = document.querySelector("#id_disp");
+       //      var v_colors = ["blue","red","green","black","pink",];
+
+//        alert(document.querySelector("#id_disp").style.backgroundColor);
+//        alert(document.querySelector("#id_disp").style.color);
+    
+//     }
+/*
+    // 참조방식을 활용하여 위의식을 편하게 사용
+    var v_disp = document.querySelector("#id_disp");
+    function f_click(){
+        // style 값 읽어오기
+       alert(v_disp.style.backgroundColor);
+       alert(v_disp.style.color);
+        // style 값 쓰기
+        v_disp.style.color ="yellow";
+        
+        // v_disp.style.backgroundColor="blue"; // 배열식 접근으로 가능하다
+        v_disp.style["background-color"] = "magenta";
+
+
+    }
+*/
+
+    // // 참조방식을 활용하여 위의식을 편하게 사용
+    // var v_disp = document.querySelector("#id_disp");
+    // var v_colors = ["blue","red","green","black","pink",];
+    // function f_click(){
+    //     var v_ranColor = v_colors[Math.floor(Math.random()*v_colors.length)];
+    //     console.log(v_ranColor);
+    //     v_disp.style.color=v_ranColor; // 개발자툴에서 변화를 할 수 있다. (디버깅할때 봐야되는곳)
+    // }
+
+   /*
+    // 스크립트로 제어하는 스타일은 해당 태그의 inline style이다.
+    var v_disp = document.querySelector("#id_disp");
+    var v_colors = ["blue","red","green","black","pink",];
+    function f_click(){
+        var v_ranColor = v_colors[Math.floor(Math.random()*v_colors.length)];
+        console.log(v_ranColor);
+        v_disp.style.color=v_ranColor; // 개발자툴에서 변화를 할 수 있다. (디버깅할때 봐야되는곳)
+        document.body.style.backgroundColor = v_ranColor;
+        setTimeout(f_click,1000); // 재귀 호출
+    
+    */
+
+      //  v_disp.style.display = "none";  // 블락을 논으로 변경하여 사라짐
+
+        // 다시 나오게 하는법
+        function f_click(){
+        if(v_disp.style.display == "none"){
+            v_disp.style.display = "block";  // else 문 대신 return으로 표현
+            return;
+        }
+        v_disp.style.display="none";
+    }
+
+
+
+
+</script>
+</body>
+</html>

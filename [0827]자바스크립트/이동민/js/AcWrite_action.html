@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쓴값 저장하기</title>
+</head>
+<body>
+    
+</body>
+<script src="./thisDate.js"></script>
+<script>
+    // 넘어온 정보
+    var v_mCategory = requestDate.getParameter("nm_mCategory"); // 대분류
+    console.log(v_mCategory);
+    var v_uHistory = requestDate.getParameter("nm_uHistory"); // 사용출처
+    var v_sCategory = requestDate.getParameter("nm_sCategory"); // 소분류
+    var v_cAmount = requestDate.getParameter("nm_cAmount"); // 금액
+    var v_ndate = requestDate.getParameter("nm_ndate"); // 날짜
+
+    // localStorage 저장부분
+    var v_arrTotal = [];
+    var v_itlValueNum = 1; // 초기 값
+    
+    if(localStorage.getItem(v_thisDate)){
+        v_arrTotal = JSON.parse(localStorage.getItem(v_thisDate));
+        v_itlValueNum = v_arrTotal[v_arrTotal.length-1].pid +1;
+    }
+
+    var v_nullValue = {};
+    v_nullValue.itlValueNum = v_itlValueNum; // 글 번호
+    v_nullValue.mCategory = v_mCategory;    // 대분류
+    v_nullValue.uHistory = v_uHistory;      // 사용한곳
+    v_nullValue.sCategory = v_sCategory;    // 소분류
+    v_nullValue.cAmount = v_cAmount;        // 금액
+    v_nullValue.ndate = v_ndate;            // 날짜
+    v_arrTotal.push(v_nullValue);
+
+    localStorage.setItem(v_thisDate,JSON.stringify(v_arrTotal));
+
+    alert("작성하신 글이 정상적으로 등록되었습니다.");
+    // location.replace("AcList.html");
+</script>
+</html>

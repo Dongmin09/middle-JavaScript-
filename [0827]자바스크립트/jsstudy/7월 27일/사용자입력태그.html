@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" id="id_html1">
+<head>
+    <!--2022-07-27.14:52-->
+    <meta charset="UTF-8">
+    <title> 사용자 입력태그</title>
+    <style>
+        input{
+            color: yellow;
+            background-color: blue;
+            font-size: 50px;
+        }
+        #id_disp {
+            width: 600px;
+          /*  height: 400px;*/
+            border: 1px solid black;
+            color: aliceblue;
+            background-color: black;
+            
+        }
+    </style>
+</head>
+<body>
+    <!--버튼 만들기-->
+    <!-- onclick 은 이벤트, f_click은 이벤트 핸들러 라고한다.-->
+    <!--type, value, onclick 은 속성(attribute)
+        각 태그는 element (한 개의 객체라고 생각하면된다.)
+    -->
+    <p id = "id_pp">
+        <a href="http://naver.com">네이버불러오기</a><br>
+        <a href="http://daum.net">다음불러오기</a><br>
+    </p>
+    <div id = "id_disp" onclick="f_divClick()">이건 무엇인가?</div>
+<input type="button" value="소스 확인" onclick="f_click()">
+
+<input id = "id_사용자" type="button" value="누르시오." onclick="f_click()">
+
+<script>
+    function f_divClick(){
+        alert(document.head.innerHTML);
+        alert(id_pp.innerHTML); //? innerHTML 하고 문자열 더하기만 알아도 현업에서 꽤 급하게 땜빵가능
+        alert(id_disp.innerHTML);
+        id_disp.innerHTML += "<h1>나는 최고의 프래그래머이다.</h1>";
+       // id_disp.innerHTML =
+        //    id_disp.innerHTML + "<h1>나는 최고의 프래그래머이다.</h1>";  두 줄을 압축한 것
+    }
+
+    // 스크립트에서 html 문서를 가리키는 예약어는 document
+    function f_source(){
+        // 작성하시오
+        alert(id_html1.innerHTML);
+    }
+    
+    function f_click(){
+
+
+
+        id_disp.innerHTML += "<h2>나는 최고의 프래그래머이다.</h2>";
+        console.log(id_사용자.type);
+        console.log(id_사용자.value);
+        console.log(id_사용자.onclick);
+        console.log(id_사용자.id);
+        id_사용자.value = "버튼!!!";   /// 기존 value 값 변경
+
+
+
+        /*
+        alert("누른 버튼은 여기이다.")  // 함수실행
+        console.log(document.head);
+        console.log(document.body);
+        console.log(document.body.innerHTML); // 중요한 속성
+        */
+    }
+
+</script>
+
+
+</body>   
+</html>

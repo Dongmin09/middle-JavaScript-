@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="눌러봐" onclick="f_write()">
+    <script>
+        
+        document.write("<div style='text-align:center'>");
+        // 개발자들은 상태변수(flag 변수, switch 변수)를 잘선언해야함
+        // 교수님 풀이
+        var v_direction = true;  // 이런 변수를 잘 선언해야함
+        for(var i=1; i>=1 && i<=6;){
+
+            document.write("<h" + i + "> 나는 최고의 프로그래머다.<h" +i+">");
+            if(i==6) {
+                v_direction=false; // 방향전환 포인트
+            }
+            if(v_direction){
+               // i=i+1;
+               i++;
+            }else{
+               // i=i-1;
+               i--;
+            }
+        }      
+        document.write("</div>");
+
+
+    
+        
+
+
+    
+
+
+    </script>
+    
+</body>
+</html>

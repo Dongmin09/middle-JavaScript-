@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일별 날짜 정리</title>
+<script src="./thisDate.js"></script>
+<style>
+    .monthList{
+        font-size: 2.0em;
+        color: bisque;
+    }
+</style>
+</head>
+<body>
+    <h1>일자 가계부</h1>
+    <div id="id_monthList"></div>
+<script>
+    var v_monthList = document.querySelector("#id_monthList");
+    var v_dataArr = JSON.parse(localStorage.getItem(v_thisDate));
+
+
+    //페이지 작성글 개수
+    var v_pDsu = 10;
+
+    var v_pageNum = requestDate.getParameter("pageNum")
+
+    if(!v_pageNum){
+        v_pageNum=1;
+    }
+    
+    var v_totalG = v_dataArr.length;
+    var v_pageGasu = Math.ceil( v_totalG / v_pDsu);
+    var v_sNum = (v_pageNum-1)*v_pDsu; 
+    var v_eNum = v_sNum + (v_pDsu-1); 
+
+    // 마지막페이지 글수
+    if(v_eNum> (v_totalG-1)){
+        v_eNum = v_totalG-1; 
+    } 
+
+    var v_listSee = "<<table border=2 width=400>"
+    v_listSee += "<tr><th>대분류</th><th>사용출처</th><th>소분류</th><th>금액</th><th>날짜</th></tr>";
+
+    // for(var i=v_sNum; i<=v_eNum; i++){
+    //     var v_listWr = v_dataArr[i];
+
+    //     v_listWr += "<tr onmouseover='f_over(this)' onmouseout='f_out(this)' >";
+    //     v_listWr += "<td>" + (i+1) + "</td>";
+    //     v_listWr += "<td><a href=AcRead.html?gnum=" + v_nullValue.itlValueNum  + " >" + v_nullValue.mCategory  + "</a></td>";
+    //     v_listWr += "<td>" + v_nullValue.uHistory  + "</td>";
+    //     v_listWr += "<td>" + v_nullValue.sCategory   + "</td>";
+    //     v_listWr += "<td>" + v_nullValue.cAmount   + "</td>";
+    //     v_listWr += "<td>" + v_nullValue.ndate    + "</td>";
+    //     v_listWr += "</tr>" ;
+
+    // }
+    v_thisDate  += "</table><br><br>";
+
+    for(var i=1; i<=v_pageGasu; i++){
+        if(i==v_pageNum){
+            v_thisDate  += "<a class = active href='Aclist.html?pageNum="+i+"'>" + i + "</a>&nbsp&nbsp&nbsp&nbsp;";
+        }else{
+            v_thisDate  += "<a href='list.html?pageNum="+i+"'>" + i + "</a>&nbsp&nbsp&nbsp&nbsp;";
+        }
+    }
+
+</script>  
+
+</body>
+</html>

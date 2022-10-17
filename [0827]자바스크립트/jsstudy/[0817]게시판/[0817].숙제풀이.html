@@ -1,0 +1,88 @@
+
+
+<!--
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+
+    이 페이지는 사용자에게 보여지는 내용은 없다
+    지금부터 하는 내용은 사실 사기에 가깝다. 왜일까?
+
+
+
+<script src="./gesilib.js"></script>
+ <script>
+   // 넘어 온 값들
+    var v_title = request.getParameter("nm_title");
+    var v_writer = request.getParameter("nm_writer");
+    var v_level= request.getParameter("nm_level");
+    var v_cats = request.getParameter("nm_cat");
+    var v_content = request.getParameter("nm_content").replaceAll("+"," ");
+
+    // localStorage에 저장하기
+    var v_tblName = "gesiTB";
+    // 넘어온 값들을 통째로 1개로 묶어서 저장하고 픔
+    var v_arrTotal = [];
+
+
+    var v_gul = {}; //  묶어주기 위한 빈 객체(name - space로 봐도 무방하다.)
+    v_gul.title = v_title;
+    v_gul.writer = v_writer;
+    v_gul.level = v_level;
+    v_gul.cats = v_cats;
+    v_gul.content = v_content;
+    v_arrTotal.push(v_gul); // v_gul 객체를 v_arrTotal 배열에 담음
+
+    localStorage.setItem(v_tblName,JSON.stringify(v_arrTotal));
+
+    // 오늘의 숙제 수단 방법을 가리지 않고(애지일기법)
+    // 쓰는 글들이 기존 배열에 추가되어 localStorage에 저장되도록 한다.
+    // 힌트 : localStorage.setItem과 JSON.parse를 함께 잘 사용하면된다.
+    //
+</script>  
+
+<script>
+    // 넘어 온 값들
+    var v_title = request.getParameter("nm_title");
+    var v_writer = request.getParameter("nm_writer");
+    var v_level= request.getParameter("nm_level");
+    var v_cats = request.getParameter("nm_cat");
+    var v_content = request.getParameter("nm_content").replaceAll("+"," ");
+    
+     // localStorage에 저장하기
+     var v_tblName = "gesiTB";
+     // 넘어온 값들을 통째로 1개로 묶어서 저장하고 픔
+     var v_arrTotal = [];
+     
+     
+     
+     var v_gul = {}; //  묶어주기 위한 빈 객체(name - space로 봐도 무방하다.)
+     v_gul.title = v_title;
+     v_gul.writer = v_writer;
+     v_gul.level = v_level;
+     v_gul.cats = v_cats;
+     v_gul.content = v_content;
+     //v_arrTotal.push(v_gul); // v_gul 객체를 v_arrTotal 배열에 담음
+     
+     //  localStorage.setItem(v_tblName,JSON.stringify(v_arrTotal));
+     
+     //  v_all =JSON.parse(localStorage.getItem(v_tblName)); // 객체화
+     //  //v_all.push(v_tblName,JSON.stringify(v_all));
+     //  v_all.push(v_gul);
+     //  localStorage.setItem(v_tblName,JSON.stringify(v_arrTotal));
+     
+     if(localStorage.getItem(v_tblName,JSON.stringify(v_arrTotal)) == null){
+         v_arrTotal.push(v_gul); //v_gul 객체를 v_arrTotal 배열에 담음
+         localStorage.setItem(v_tblName,JSON.stringify(v_arrTotal));
+        } else{
+            v_arrTotal = JSON.parse(localStorage.getItem(v_tblName)); //객체화
+            v_arrTotal.push(v_gul); //v_gul 객체를 v_arrTotal 배열에 담음
+            localStorage.setItem(v_tblName,JSON.stringify(v_arrTotal));
+        }
+        
+        // 오늘의 숙제 수단 방법을 가리지 않고(애지일기법)
+        // 쓰는 글들이 기존 배열에 추가되어 localStorage에 저장되도록 한다.
+        // 힌트 : localStorage.setItem과 JSON.parse를 함께 잘 사용하면된다.
+        //
+    </script> 
+-->
+    

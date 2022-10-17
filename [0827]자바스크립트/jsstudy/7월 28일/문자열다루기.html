@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+  <script>
+    // 16:32분 시작
+
+    // 문자열은 중요
+    var v_str = "오늘부터,우리는,이세상을,지배한다"
+    
+    // 문자열의 길이 , string에 . 을 찍는 순간 자동으로 String(Wrapper)객체로 바뀐다.
+    //alert(v_str.length); 
+
+    //alert(v_str.indexOf("지배한다"));
+    //alert(v_str.indexOf("지배한다",20)); // 10번째 자리부터 찾아라  못찾을시 -1이 나온다.
+
+    /*
+    //replace
+    var v_replce = v_str.replace("우리는","누군가");
+    alert(v_replce); // 새로운 문자열을 만들어서 return 해준다. -> 주의해서 쓸것!
+    alert(v_str); // 원본은 바뀌지 않음
+   */
+
+   /*
+    //replace 원본바꾸기
+    v_str = v_str.replace("우리는","누군가"); // 리플레이스를 사용하여 원본을 바꾸는법
+    alert(v_str); // 원본아 바뀌어진걸 확인할수 있다.
+*/
+
+    //split
+    /*
+   var v_split = v_str.split(",") // split은 배열로 retrun 해준다.
+    alert(v_split[2]); //? 이세상을 이 나옴
+
+    var v_split = v_str.split("") // split은 한글자씩 나누어 return 해준다.
+    alert(v_split); //? 
+    alert(v_split[2]); //?  부가 출력됨
+   
+    var v_split = v_str.split("을,") // 구분자는 제외된다.
+    alert(v_split[0]); //?  오늘부터,우리는,이세상 까지 출력
+*/    
+
+/*
+    //substr
+    alert(v_str.substr(1,2)); // 늘부 1번자리인덱스에서 2개만 골라온다.
+*/
+
+/*
+    //trim
+    // 사이의 공백 제거
+    var v_trim = "     월요일이      ";
+    alert("앞" + v_trim + "뒤");
+    alert("앞" + v_trim.trim() + "뒤");
+*/
+
+    var v_attention = "주의하시오";
+    alert(v_attention[2]); // 읽을때 배열식 접근이 가능하다. // 하 출력
+    v_attention[2] = "빵";  // 적용되지 않는다. 기본(원시)타입 immortal(불멸)
+    alert(v_attention); // 확인
+
+
+
+  </script>
